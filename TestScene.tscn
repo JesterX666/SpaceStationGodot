@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bh0sny7wcrcyc"]
+
+[ext_resource type="Script" path="res://Node3D.cs" id="1_u5mhc"]
+[ext_resource type="Script" path="res://Grid.cs" id="2_ny3xg"]
+[ext_resource type="PackedScene" uid="uid://dm3dbiq50aneh" path="res://build_menu.tscn" id="3_enxn4"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ej4at"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_u5mhc")
+
+[node name="Grid" type="Node3D" parent="."]
+script = ExtResource("2_ny3xg")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("CapsuleMesh_ej4at")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.958666, 0.284534, 0, -0.284534, 0.958666, 0, 1.26799, 4.92038)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.541507, -0.561434, 0.62575, 0.367386, 0.827522, 0.424541, -0.756173, 2.25357e-08, 0.654371, 0, 1.30019, 3.66539)
+
+[node name="BuildMenu" parent="." instance=ExtResource("3_enxn4")]
